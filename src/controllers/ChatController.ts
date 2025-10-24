@@ -267,8 +267,8 @@ export class ChatController {
       { id: "11", text: "🤝 Servos" },
       { id: "12", text: "🛍️ Loja" },
       { id: "13", text: "📍 Localização" },
-      { id: "15", text: "💰 PUSH Invest" },
-      { id: "14", text: "❌ Encerrar" },
+      { id: "14", text: "💰 PUSH Invest" },
+      { id: "15", text: "❌ Encerrar" },
     ];
 
     return {
@@ -387,8 +387,8 @@ export class ChatController {
       "servos": "11",
       "loja": "12",
       "localização": "13",
-      "push invest": "15",
-      "encerrar": "14"
+      "push invest": "14",
+      "encerrar": "15"
     };
 
     const lowerMessage = normalizedMessage.toLowerCase();
