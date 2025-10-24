@@ -22,7 +22,7 @@ export class ChatController {
         userMessage.trim() === ""
       ) {
         logger.warn(`⚠️ Mensagem inválida ignorada de: ${userPhone}`);
-        
+
         const emptyResponse = `<?xml version="1.0" encoding="UTF-8"?>
 <Response>
 </Response>`;
@@ -42,33 +42,51 @@ export class ChatController {
       // ✅ CORRIGIR: Processar mensagem baseada no estado atual
       switch (currentStep) {
         case "WELCOME":
-          const welcomeResponse = await this.handleWelcome(userMessage, userPhone);
+          const welcomeResponse = await this.handleWelcome(
+            userMessage,
+            userPhone
+          );
           responseText = welcomeResponse.text;
           buttons = welcomeResponse.buttons || [];
           break;
 
         case "MAIN_MENU":
-          const mainMenuResponse = await this.handleMainMenu(userMessage, userPhone);
+          const mainMenuResponse = await this.handleMainMenu(
+            userMessage,
+            userPhone
+          );
           responseText = mainMenuResponse.text;
           buttons = mainMenuResponse.buttons || [];
           break;
 
         case "PUSH_INVEST_MENU":
-          const pushInvestResponse = await this.handlePushInvestMenu(userMessage, userPhone);
+          const pushInvestResponse = await this.handlePushInvestMenu(
+            userMessage,
+            userPhone
+          );
           responseText = pushInvestResponse.text;
           buttons = pushInvestResponse.buttons || [];
           break;
 
         case "PUSH_INVEST_PROJETOS":
-          responseText = await this.handlePushInvestProjetos(userMessage, userPhone);
+          responseText = await this.handlePushInvestProjetos(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "PUSH_INVEST_INVESTIR":
-          responseText = await this.handlePushInvestInvestir(userMessage, userPhone);
+          responseText = await this.handlePushInvestInvestir(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "PUSH_INVEST_CONTATO":
-          responseText = await this.handlePushInvestContato(userMessage, userPhone);
+          responseText = await this.handlePushInvestContato(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "CADASTRO_NOME":
@@ -76,27 +94,45 @@ export class ChatController {
           break;
 
         case "CADASTRO_DATA_NASCIMENTO":
-          responseText = await this.handleCadastroDataNascimento(userMessage, userPhone);
+          responseText = await this.handleCadastroDataNascimento(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "CADASTRO_ESTADO_CIVIL":
-          responseText = await this.handleCadastroEstadoCivil(userMessage, userPhone);
+          responseText = await this.handleCadastroEstadoCivil(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "CADASTRO_ENDERECO":
-          responseText = await this.handleCadastroEndereco(userMessage, userPhone);
+          responseText = await this.handleCadastroEndereco(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "CADASTRO_PROFISSAO":
-          responseText = await this.handleCadastroProfissao(userMessage, userPhone);
+          responseText = await this.handleCadastroProfissao(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "CADASTRO_COMO_CONHECEU":
-          responseText = await this.handleCadastroComoConheceu(userMessage, userPhone);
+          responseText = await this.handleCadastroComoConheceu(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "ORACAO_TIPO":
-          const oracaoResponse = await this.handleOracaoTipo(userMessage, userPhone);
+          const oracaoResponse = await this.handleOracaoTipo(
+            userMessage,
+            userPhone
+          );
           responseText = oracaoResponse.text;
           buttons = oracaoResponse.buttons || [];
           break;
@@ -106,11 +142,17 @@ export class ChatController {
           break;
 
         case "ORACAO_ANONIMATO":
-          responseText = await this.handleOracaoAnonimato(userMessage, userPhone);
+          responseText = await this.handleOracaoAnonimato(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "ORACAO_NOME_FAMILIA":
-          responseText = await this.handleOracaoNomeFamilia(userMessage, userPhone);
+          responseText = await this.handleOracaoNomeFamilia(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "VISITA_DATA":
@@ -122,49 +164,79 @@ export class ChatController {
           break;
 
         case "NUCLEO_REGIAO":
-          const nucleoResponse = await this.handleNucleoRegiao(userMessage, userPhone);
+          const nucleoResponse = await this.handleNucleoRegiao(
+            userMessage,
+            userPhone
+          );
           responseText = nucleoResponse.text;
           buttons = nucleoResponse.buttons || [];
           break;
 
         case "MINISTERIO_TIPO":
-          const ministerioResponse = await this.handleMinisterioTipo(userMessage, userPhone);
+          const ministerioResponse = await this.handleMinisterioTipo(
+            userMessage,
+            userPhone
+          );
           responseText = ministerioResponse.text;
           buttons = ministerioResponse.buttons || [];
           break;
 
         case "ASSISTENCIA_TIPO":
-          const assistenciaResponse = await this.handleAssistenciaTipo(userMessage, userPhone);
+          const assistenciaResponse = await this.handleAssistenciaTipo(
+            userMessage,
+            userPhone
+          );
           responseText = assistenciaResponse.text;
           buttons = assistenciaResponse.buttons || [];
           break;
 
         case "ASSISTENCIA_DETALHE":
-          responseText = await this.handleAssistenciaDetalhe(userMessage, userPhone);
+          responseText = await this.handleAssistenciaDetalhe(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "TRANSFERENCIA_IGREJA_ORIGEM":
-          responseText = await this.handleTransferenciaIgrejaOrigem(userMessage, userPhone);
+          responseText = await this.handleTransferenciaIgrejaOrigem(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "TRANSFERENCIA_MOTIVO":
-          responseText = await this.handleTransferenciaMotivo(userMessage, userPhone);
+          responseText = await this.handleTransferenciaMotivo(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "ATUALIZACAO_DADOS_TIPO":
-          responseText = await this.handleAtualizacaoDadosTipo(userMessage, userPhone);
+          responseText = await this.handleAtualizacaoDadosTipo(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "ATUALIZACAO_DADOS_NOVO_VALOR":
-          responseText = await this.handleAtualizacaoDadosNovoValor(userMessage, userPhone);
+          responseText = await this.handleAtualizacaoDadosNovoValor(
+            userMessage,
+            userPhone
+          );
           break;
 
         case "DIREITOS_DEVERES":
-          responseText = await this.handleDireitosDeveres(userMessage, userPhone);
+          responseText = await this.handleDireitosDeveres(
+            userMessage,
+            userPhone
+          );
           break;
 
         default:
-          const defaultResponse = await this.handleWelcome(userMessage, userPhone);
+          const defaultResponse = await this.handleWelcome(
+            userMessage,
+            userPhone
+          );
           responseText = defaultResponse.text;
           buttons = defaultResponse.buttons || [];
       }
@@ -180,20 +252,26 @@ export class ChatController {
       res.type("text/xml");
       res.send(emptyResponse);
 
-      logger.info(`✅ Resposta enviada via WhatsApp para ${userPhone}: ${currentStep}`);
-
+      logger.info(
+        `✅ Resposta enviada via WhatsApp para ${userPhone}: ${currentStep}`
+      );
     } catch (error) {
       logger.error("❌ Erro no webhook:", error);
 
       // ✅ Tentar enviar mensagem de erro via WhatsApp
       try {
-        const userPhone = req.body.From ? req.body.From.replace("whatsapp:", "") : "unknown";
+        const userPhone = req.body.From
+          ? req.body.From.replace("whatsapp:", "")
+          : "unknown";
         await WhatsAppService.sendTextMessage(
           userPhone,
           "❌ Desculpe, ocorreu um erro no servidor. Por favor, tente novamente."
         );
       } catch (whatsappError) {
-        logger.error("❌ Erro ao enviar mensagem de erro via WhatsApp:", whatsappError);
+        logger.error(
+          "❌ Erro ao enviar mensagem de erro via WhatsApp:",
+          whatsappError
+        );
       }
 
       const errorTwiml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -240,7 +318,10 @@ export class ChatController {
         );
       }, 2000);
     } catch (error) {
-      logger.error(`❌ Erro ao enviar mensagem de boas-vindas para ${phone}:`, error);
+      logger.error(
+        `❌ Erro ao enviar mensagem de boas-vindas para ${phone}:`,
+        error
+      );
     }
   }
 
@@ -285,7 +366,18 @@ export class ChatController {
     const normalizedMessage = message.trim();
 
     // ✅ CORRIGIR: Tratamento de saudações
-    const saudações = ["shalom", "bom dia", "boa tarde", "boa noite", "olá", "ola", "salve", "oi", "hi", "hello"];
+    const saudações = [
+      "shalom",
+      "bom dia",
+      "boa tarde",
+      "boa noite",
+      "olá",
+      "ola",
+      "salve",
+      "oi",
+      "hi",
+      "hello",
+    ];
     if (saudações.includes(normalizedMessage.toLowerCase())) {
       return await this.handleWelcome("", phone);
     }
@@ -354,12 +446,12 @@ export class ChatController {
             text: `📍 *LOCALIZAÇÃO E CONTATO*\n\n*Endereço da Sede:*\n🏛️ CFC PUSH - Igreja da Família Cristã\nAv. 25 de Setembro, 1234\nMaputo, Moçambique\n\n*Coordenadas GPS:*\n-25.9689, 32.5695\n\n*Como Chegar:*\n🚌 *Transporte Público:*\n• Chapas: Linhas 25, 32, 44\n• Paragem: Av. 25 de Setembro\n\n🚗 *Estacionamento:*\nGratuito disponível no local\n\n*Contatos Gerais:*\n📞 +258 84 300 4000\n✉️ info@cfcpush.org\n🌐 www.cfcpush.org\n\nDigite [#] para menu principal`,
           };
 
-        // ✅ NOVA OPÇÃO 15: PUSH INVEST
-        case "15":
+        // ✅ CORREÇÃO: Opção 14 = PUSH Invest, Opção 15 = Encerrar
+        case "14":
           await UserStateService.setState(phone, "PUSH_INVEST_MENU");
           return await this.handlePushInvestMenu("", phone);
 
-        case "14":
+        case "15":
           await UserStateService.deleteState(phone);
           return {
             text: "👋 *ATENDIMENTO ENCERRADO!*\n\nObrigado por contactar a *CFC PUSH - Igreja da Família Cristã*! 🙏\n\nQue Deus te abençoe ricamente e estamos sempre aqui para servir!\n\n*Shalom!* ✨\n\nPara reiniciar, digite qualquer mensagem.",
@@ -375,20 +467,20 @@ export class ChatController {
     // Se não for uma opção numérica, verificar se é texto dos botões
     const buttonResponses: { [key: string]: string } = {
       "ser membro": "1",
-      "oração": "2", 
-      "pastor": "3",
-      "cultos": "4",
-      "contribuir": "5",
-      "visita": "6",
-      "assistência": "7",
-      "núcleos": "8",
-      "ministérios": "9",
-      "evangelização": "10",
-      "servos": "11",
-      "loja": "12",
-      "localização": "13",
+      oração: "2",
+      pastor: "3",
+      cultos: "4",
+      contribuir: "5",
+      visita: "6",
+      assistência: "7",
+      núcleos: "8",
+      ministérios: "9",
+      evangelização: "10",
+      servos: "11",
+      loja: "12",
+      localização: "13",
       "push invest": "14",
-      "encerrar": "15"
+      encerrar: "15",
     };
 
     const lowerMessage = normalizedMessage.toLowerCase();
@@ -434,29 +526,32 @@ export class ChatController {
     }
 
     const opcoesPushInvest: { [key: string]: string } = {
-      "projetos": "PUSH_INVEST_PROJETOS",
-      "investir": "PUSH_INVEST_INVESTIR", 
-      "contato": "PUSH_INVEST_CONTATO",
+      projetos: "PUSH_INVEST_PROJETOS",
+      investir: "PUSH_INVEST_INVESTIR",
+      contato: "PUSH_INVEST_CONTATO",
     };
 
-    if (normalizedMessage && opcoesPushInvest[normalizedMessage.toLowerCase()]) {
+    if (
+      normalizedMessage &&
+      opcoesPushInvest[normalizedMessage.toLowerCase()]
+    ) {
       const opcao = normalizedMessage.toLowerCase();
       await UserStateService.setState(phone, opcoesPushInvest[opcao]);
-      
+
       switch (opcao) {
         case "projetos":
           return {
-            text: `💰 *PUSH INVEST - PROJETOS*\n\n*Em Breve!* 🚧\n\nEstamos preparando projetos incríveis de investimento e desenvolvimento para nossa comunidade.\n\n*Fique atento às novidades!*\n\nEm breve teremos:\n• Projetos imobiliários\n• Investimentos comunitários\n• Programas de desenvolvimento\n\nDigite [#] para voltar ao menu principal.`
+            text: `💰 *PUSH INVEST - PROJETOS*\n\n*Em Breve!* 🚧\n\nEstamos preparando projetos incríveis de investimento e desenvolvimento para nossa comunidade.\n\n*Fique atento às novidades!*\n\nEm breve teremos:\n• Projetos imobiliários\n• Investimentos comunitários\n• Programas de desenvolvimento\n\nDigite [#] para voltar ao menu principal.`,
           };
-        
+
         case "investir":
           return {
-            text: `💰 *PUSH INVEST - COMO INVESTIR*\n\n*Informação em Desenvolvimento* 📈\n\nNossa equipe está trabalhando nas melhores oportunidades de investimento para você.\n\n*Volte em breve para conhecer:*\n• Modalidades de investimento\n• Retornos esperados\n• Processo de participação\n\nDigite [#] para voltar ao menu principal.`
+            text: `💰 *PUSH INVEST - COMO INVESTIR*\n\n*Informação em Desenvolvimento* 📈\n\nNossa equipe está trabalhando nas melhores oportunidades de investimento para você.\n\n*Volte em breve para conhecer:*\n• Modalidades de investimento\n• Retornos esperados\n• Processo de participação\n\nDigite [#] para voltar ao menu principal.`,
           };
-        
+
         case "contato":
           return {
-            text: `💰 *PUSH INVEST - CONTATO*\n\n*Equipe Especializada* 👨‍💼\n\nPara informações sobre investimentos, entre em contato com nossa equipe:\n\n📞 *Telefone:* +258 84 500 6000\n✉️ *Email:* invest@cfcpush.org\n🏛️ *Escritório:* Sede CFC PUSH\n\n*Horário de Atendimento:*\nSegunda a Sexta: 9h-17h\nSábado: 9h-12h\n\nDigite [#] para voltar ao menu principal.`
+            text: `💰 *PUSH INVEST - CONTATO*\n\n*Equipe Especializada* 👨‍💼\n\nPara informações sobre investimentos, entre em contato com nossa equipe:\n\n📞 *Telefone:* +258 84 500 6000\n✉️ *Email:* invest@cfcpush.org\n🏛️ *Escritório:* Sede CFC PUSH\n\n*Horário de Atendimento:*\nSegunda a Sexta: 9h-17h\nSábado: 9h-12h\n\nDigite [#] para voltar ao menu principal.`,
           };
       }
     }
@@ -481,7 +576,7 @@ export class ChatController {
     phone: string
   ): Promise<string> {
     await UserStateService.resetToMainMenu(phone);
-    
+
     return `💰 *PUSH INVEST - PROJETOS*\n\n*Em Desenvolvimento* 🚧\n\nEstamos criando oportunidades de investimento que beneficiem nossa comunidade e glorifiquem a Deus.\n\n*Áreas de Atuação Futura:*\n• Desenvolvimento imobiliário\n• Projetos comunitários\n• Investimentos sustentáveis\n• Programas de microcrédito\n\n📞 *Para mais informações:*\n+258 84 500 6000\ninvest@cfcpush.org\n\n*Volte em breve para novidades!*\n\nDigite [#] para menu principal.`;
   }
 
@@ -491,7 +586,7 @@ export class ChatController {
     phone: string
   ): Promise<string> {
     await UserStateService.resetToMainMenu(phone);
-    
+
     return `💰 *PUSH INVEST - COMO INVESTIR*\n\n*Informações em Desenvolvimento* 📈\n\nEstamos estruturando as melhores opções de investimento para nossos membros e parceiros.\n\n*Em Breve Ofereceremos:*\n• Diversas modalidades\n• Planos de investimento\n• Acompanhamento profissional\n• Transparência total\n\n💼 *Contato para Investidores:*\n📞 +258 84 500 6000\n✉️ invest@cfcpush.org\n\n*Deus abençoe seus investimentos!*\n\nDigite [#] para menu principal.`;
   }
 
@@ -501,7 +596,7 @@ export class ChatController {
     phone: string
   ): Promise<string> {
     await UserStateService.resetToMainMenu(phone);
-    
+
     return `💰 *PUSH INVEST - CONTATO*\n\n*Fale com Nossa Equipe* 👨‍💼\n\n*Coordenação PUSH Invest:*\nIrmão João Investimentos\n\n📞 *Telefone:* +258 84 500 6000\n✉️ *Email:* invest@cfcpush.org\n🏛️ *Endereço:* Sede CFC PUSH\nAv. 25 de Setembro, 1234\nMaputo\n\n*Horário de Atendimento:*\nSegunda a Sexta: 9h-17h\nSábado: 9h-12h\n\n*Estamos aqui para ajudar!*\n\nDigite [#] para menu principal.`;
   }
 
@@ -527,7 +622,7 @@ export class ChatController {
         info: "🔔 *NÚCLEO ZONA OESTE*\n\n*Responsável:* Irmã Ana\n📞 +258 84 456 7890\n\n*Local de Reunião:*\nSalão Paroquial\nRua Oeste, 456\n\n*Horários:*\nSegundas: 18h00 - Intercessão\nSextas: 17h00 - Jovens",
         contato: "+258844567890",
       },
-      "Centro": {
+      Centro: {
         info: "🔔 *NÚCLEO CENTRO*\n\n*Responsável:* Irmão Carlos\n📞 +258 84 567 8901\n\n*Local de Reunião:*\nSede CFC PUSH\nAv. 25 de Setembro, 1234\n\n*Horários:*\nDiariamente - Programação Principal\nConsulte horários dos cultos",
         contato: "+258845678901",
       },
@@ -567,7 +662,7 @@ export class ChatController {
         info: `🎵 *MINISTÉRIO DE LOUVOR E ADORAÇÃO*\n\n*Responsável:* Irmão João Silva\n📞 +258 84 123 4567\n✉️ louvor@cfcpush.org\n\n*Descrição:*\nMinistério dedicado à música, canto e adoração através das artes. Preparamos os momentos de louvor dos cultos e eventos especiais.\n\n*Requisitos:*\n• Habilidade musical ou vocal\n• Compromisso com ensaios\n• Vida de adoração\n\n*Horários:*\nEnsaios: Quintas 19h00\nApresentações: Domingos e eventos`,
         contato: "+258841234567",
       },
-      "Intercessão": {
+      Intercessão: {
         info: `🙏 *MINISTÉRIO DE INTERCESSÃO*\n\n*Responsável:* Irmã Maria Santos\n📞 +258 84 234 5678\n✉️ intercessao@cfcpush.org\n\n*Descrição:*\nGrupo de oração que intercede pela igreja, liderança, membros e necessidades específicas. Vigílias e cadeias de oração.\n\n*Requisitos:*\n• Vida de oração\n• Compromisso com horários\n• Discrição e fé\n\n*Horários:*\nReuniões: Segundas 18h00\nVigílias: Último Sábado do mês`,
         contato: "+258842345678",
       },
@@ -579,7 +674,7 @@ export class ChatController {
         info: `👶 *CFC KIDS - MINISTÉRIO INFANTIL*\n\n*Responsável:* Irmã Ana Pereira\n📞 +258 84 456 7890\n✉️ kids@cfcpush.org\n\n*Descrição:*\nMinistério para crianças de 3-12 anos. Escola Bíblica Infantil, atividades lúdicas e ensino cristão adaptado.\n\n*Requisitos para voluntários:*\n• Amor por crianças\n• Paciência e criatividade\n• Check-up de segurança\n\n*Horários:*\nDomingos: 9h00-12h00\nAtividades: Sábados 10h00`,
         contato: "+258844567890",
       },
-      "Social": {
+      Social: {
         info: `🤝 *MINISTÉRIO DE AÇÃO SOCIAL*\n\n*Responsável:* Irmão Carlos Nhaca\n📞 +258 84 567 8901\n✉️ social@cfcpush.org\n\n*Descrição:*\nAções sociais na comunidade: distribuição de alimentos, visitas a hospitais, apoio a famílias carentes e projetos de desenvolvimento.\n\n*Requisitos:*\n• Compaixão e serviço\n• Disponibilidade para visitas\n• Trabalho em equipe\n\n*Horários:*\nReuniões: Terças 17h00\nAções: Sábados 8h00-12h00`,
         contato: "+258845678901",
       },
@@ -615,10 +710,10 @@ export class ChatController {
     phone: string
   ): Promise<{ text: string; buttons?: any[] }> {
     const tiposOracao: { [key: string]: string } = {
-      "Saúde": "saude",
-      "Família": "familia",
-      "Finanças": "financas",
-      "Outros": "outros",
+      Saúde: "saude",
+      Família: "familia",
+      Finanças: "financas",
+      Outros: "outros",
     };
 
     // Se o usuário já selecionou um tipo
@@ -661,10 +756,10 @@ export class ChatController {
     phone: string
   ): Promise<{ text: string; buttons?: any[] }> {
     const tiposAssistencia: { [key: string]: string } = {
-      "Alimentar": "assistencia_alimentar",
-      "Médica": "assistencia_medica",
-      "Jurídica": "assistencia_juridica",
-      "Outra": "assistencia_outra",
+      Alimentar: "assistencia_alimentar",
+      Médica: "assistencia_medica",
+      Jurídica: "assistencia_juridica",
+      Outra: "assistencia_outra",
     };
 
     // Se o usuário já selecionou um tipo
@@ -907,7 +1002,9 @@ export class ChatController {
 
     await UserStateService.resetToMainMenu(phone);
 
-    return `✅ *PEDIDO DE ORAÇÃO ENVIADO!*\n\n*Irmão(ã) ${userName}*, nosso time de intercessão já está orando por você!\n\n*Detalhes do pedido:*\n• Tipo: ${userData.prayerType}\n${
+    return `✅ *PEDIDO DE ORAÇÃO ENVIADO!*\n\n*Irmão(ã) ${userName}*, nosso time de intercessão já está orando por você!\n\n*Detalhes do pedido:*\n• Tipo: ${
+      userData.prayerType
+    }\n${
       userData.prayerFamilyName ? `• Para: ${userData.prayerFamilyName}\n` : ""
     }• Seu pedido: "${
       userData.prayerDetail
