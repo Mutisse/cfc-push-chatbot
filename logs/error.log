@@ -1,0 +1,51 @@
+2025-10-20 16:38:06 [ERROR]: ❌ Erro ao conectar com MongoDB: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongoose\lib\connection.js:1165:11)
+    at NativeConnection.openUri (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongoose\lib\connection.js:1096:11)
+    at Database.connect (D:\Programacao\Projectos\Web\cfc-push-chatbot\src\config\database.ts:38:7)
+    at App.start (D:\Programacao\Projectos\Web\cfc-push-chatbot\src\app.ts:114:7)
+2025-10-20 17:03:15 [ERROR]: ❌ Porta 3000 já está em uso
+2025-10-20 17:03:34 [ERROR]: ❌ Porta 3000 já está em uso
+2025-10-20 20:28:41 [ERROR]: ❌ Erro ao conectar com MongoDB: bad auth : Authentication failed.
+MongoServerError: bad auth : Authentication failed.
+    at Connection.sendCommand (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:559:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at Connection.command (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:633:22)
+    at executeScram (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:113:20)
+    at ScramSHA256.auth (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:60:12)
+    at performInitialHandshake (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:164:7)
+    at connect (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:43:5)
+2025-10-20 20:49:35 [ERROR]: ❌ Erro ao conectar com MongoDB: bad auth : Authentication failed.
+MongoServerError: bad auth : Authentication failed.
+    at Connection.sendCommand (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:559:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at Connection.command (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:633:22)
+    at executeScram (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:113:20)
+    at ScramSHA256.auth (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:60:12)
+    at performInitialHandshake (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:164:7)
+    at connect (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:43:5)
+2025-10-20 20:49:57 [ERROR]: ❌ Erro ao conectar com MongoDB: bad auth : Authentication failed.
+MongoServerError: bad auth : Authentication failed.
+    at Connection.sendCommand (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:559:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at Connection.command (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:633:22)
+    at executeScram (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:113:20)
+    at ScramSHA256.auth (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:60:12)
+    at performInitialHandshake (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:164:7)
+    at connect (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:43:5)
+2025-10-20 21:19:43 [ERROR]: ❌ Erro ao conectar com MongoDB: bad auth : authentication failed
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:559:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at Connection.command (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connection.ts:633:22)
+    at continueScramConversation (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:187:13)
+    at executeScram (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:114:3)
+    at ScramSHA1.auth (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\auth\scram.ts:60:12)
+    at performInitialHandshake (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:164:7)
+    at connect (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongodb\src\cmap\connect.ts:43:5)
+2025-10-22 15:52:33 [ERROR]: ❌ Erro ao conectar com MongoDB: Server selection timed out after 5000 ms
+MongooseServerSelectionError: Server selection timed out after 5000 ms
+    at _handleConnectionErrors (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongoose\lib\connection.js:1165:11)
+    at NativeConnection.openUri (D:\Programacao\Projectos\Web\cfc-push-chatbot\node_modules\mongoose\lib\connection.js:1096:11)
+    at Database.connect (D:\Programacao\Projectos\Web\cfc-push-chatbot\src\config\database.ts:33:7)
+    at Server.start (D:\Programacao\Projectos\Web\cfc-push-chatbot\src\server.ts:47:7)

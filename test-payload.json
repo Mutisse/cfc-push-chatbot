@@ -1,0 +1,39 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "123456",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "123456789",
+              "phone_number_id": "123456"
+            },
+            "contacts": [
+              {
+                "profile": {
+                  "name": "João"
+                },
+                "wa_id": "5511999999999"
+              }
+            ],
+            "messages": [
+              {
+                "from": "5511999999999",
+                "id": "123",
+                "timestamp": "1600000000",
+                "text": {
+                  "body": "1"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}
