@@ -2,9 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import chatRoutes from "./routes/webhookRoutes";
+import { webhookRouter } from "./routes/webhookRoutes";
 import { logger, morganStream } from "./config/logger";
-
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -24,13 +23,14 @@ export class App {
     this.app.use(
       cors({
         origin: process.env.ALLOWED_ORIGINS?.split(",") || [
-          "http://localhost:9000",
+          "http://localhost:3000",
+          "https://cfc-push-chatbot.onrender.com",
         ],
         credentials: true,
       })
     );
 
-    // Body parsers
+    // Body parsers - IMPORTANTE para Twilio
     this.app.use(express.json({ limit: "10mb" }));
     this.app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
@@ -45,40 +45,44 @@ export class App {
   }
 
   private setupRoutes(): void {
-    // Health check em Português
+    // Health check
     this.app.get("/health", async (req, res) => {
       try {
-        // Importação dinâmica para evitar circular dependency
         const { database } = await import("./config/database");
-        const dbHealth = await database.healthCheck();
+        const dbStatus = database.getConnectionStatus();
 
         const healthInfo = {
-          status: "OK",
-          mensagem: "CFC PUSH Chatbot está em execução!",
+          status: dbStatus ? "healthy" : "degraded",
           timestamp: new Date().toISOString(),
-          tempo_activacao: process.uptime(),
-          memoria: process.memoryUsage(),
-          base_dados: dbHealth,
-          ambiente: process.env.NODE_ENV || "desenvolvimento",
+          service: "CFC Push Chatbot",
+          environment: process.env.NODE_ENV || "development",
+          database: { connected: dbStatus },
+          uptime: process.uptime(),
         };
 
-        // Se o banco não estiver saudável, retornar status 503
-        const statusCode = dbHealth.status === "conectado" ? 200 : 503;
-
-        res.status(statusCode).json(healthInfo);
+        res.status(200).json(healthInfo);
       } catch (error) {
-        logger.error("❌ Erro no health check:", error);
+        logger.error("Erro no health check:", error);
         res.status(503).json({
-          status: "ERRO",
-          mensagem: "Problemas no servidor",
+          status: "unhealthy",
           timestamp: new Date().toISOString(),
+          error: "Service unavailable",
         });
       }
     });
 
-    // Routes da aplicação
-    this.app.use("/api", chatRoutes);
-    //this.app.use("/api/dashboard", dashboardRoutes); // Adicione esta linha
+    // Root route
+    this.app.get("/", (req, res) => {
+      res.json({
+        message: "🚀 CFC Push Chatbot API está funcionando!",
+        version: "1.0.0",
+        environment: process.env.NODE_ENV || "development",
+        timestamp: new Date().toISOString(),
+      });
+    });
+
+    // Webhook routes
+    this.app.use("/api/chatbot", webhookRouter);
 
     // 404 handler
     this.app.use("*", (req, res) => {
@@ -126,5 +130,4 @@ export class App {
 }
 
 // Exportar instância do App
-export const app = new App();
-export default app;
+export const app = new App().getApp();

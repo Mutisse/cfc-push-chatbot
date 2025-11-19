@@ -21,4 +21,5 @@ router.post("/welcome/:phone", async (req, res) => {
   }
 });
 
+// ✅ EXPORT CORRETO - SEM default
 export { router as webhookRouter };
