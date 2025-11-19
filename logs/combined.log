@@ -443,3 +443,18 @@ MongooseServerSelectionError: Server selection timed out after 5000 ms
 2025-10-24 18:01:56 [WARN]: ⚠️ MongoDB desconectado
 2025-10-24 21:47:23 [INFO]: 🔁 MongoDB reconectado
 2025-10-24 21:51:25 [INFO]: 📞 Recebido SIGINT (Ctrl+C)
+2025-11-19 13:02:53 [INFO]: 🚀 Iniciando CFC PUSH Chatbot...
+2025-11-19 13:02:53 [INFO]: 🔌 A conectar ao MongoDB...
+2025-11-19 13:03:03 [INFO]: ✅ MongoDB conectado com sucesso!
+2025-11-19 13:03:03 [INFO]: 🎉 Servidor rodando na porta 10000
+2025-11-19 13:03:03 [INFO]: 📍 Health check: http://localhost:10000/health
+2025-11-19 13:03:03 [INFO]: 🌍 Ambiente: production
+2025-11-19 13:03:03 [INFO]: ✅ Servidor ouvindo conexões
+2025-11-19 13:03:44 [INFO]: 📞 Recebido SIGINT (Ctrl+C)
+2025-11-19 13:03:51 [INFO]: 🚀 Iniciando CFC PUSH Chatbot...
+2025-11-19 13:03:51 [INFO]: 🔌 A conectar ao MongoDB...
+2025-11-19 13:03:54 [INFO]: ✅ MongoDB conectado com sucesso!
+2025-11-19 13:03:54 [INFO]: 🎉 Servidor rodando na porta 10000
+2025-11-19 13:03:54 [INFO]: 📍 Health check: http://localhost:10000/health
+2025-11-19 13:03:54 [INFO]: 🌍 Ambiente: production
+2025-11-19 13:03:54 [INFO]: ✅ Servidor ouvindo conexões
