@@ -81,6 +81,53 @@ class Database {
   public getConnectionStatus(): boolean {
     return this.isConnected;
   }
+
+  // ✅ ADICIONAR MÉTODO healthCheck QUE ESTÁ FALTANDO
+  public async healthCheck(): Promise<{ status: string; details: any }> {
+    try {
+      if (!this.isConnected || mongoose.connection.readyState !== 1) {
+        return {
+          status: "desconectado",
+          details: {
+            conectado: false,
+            estado: mongoose.connection.readyState,
+          },
+        };
+      }
+
+      return {
+        status: "conectado",
+        details: {
+          conectado: true,
+          estado: mongoose.connection.readyState,
+          servidor: mongoose.connection.host,
+          nome: mongoose.connection.name,
+        },
+      };
+    } catch (error: any) {
+      return {
+        status: "erro",
+        details: {
+          conectado: false,
+          estado: mongoose.connection.readyState,
+          erro: error.message,
+        },
+      };
+    }
+  }
+
+  private async gracefulShutdown(): Promise<void> {
+    logger.info("🛑 A iniciar encerramento gracioso...");
+
+    try {
+      await this.disconnect();
+      logger.info("✅ Encerramento concluído com sucesso");
+      process.exit(0);
+    } catch (error) {
+      logger.error("❌ Erro durante o encerramento:", error);
+      process.exit(1);
+    }
+  }
 }
 
 export const database = Database.getInstance();

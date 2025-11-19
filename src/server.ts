@@ -47,7 +47,7 @@ class Server {
   }
 
   private initializeRoutes(): void {
-    // Health check route
+    // Health check route SIMPLIFICADA
     this.app.get('/health', async (req, res) => {
       try {
         const dbStatus = database.getConnectionStatus();
@@ -58,10 +58,8 @@ class Server {
           service: 'CFC Push Chatbot',
           environment: process.env.NODE_ENV || 'development',
           database: {
-            connected: dbStatus,
-            status: dbStatus ? 'connected' : 'disconnected'
+            connected: dbStatus
           },
-          memory: process.memoryUsage(),
           uptime: process.uptime()
         };
 
@@ -124,17 +122,6 @@ class Server {
     process.on("SIGTERM", async () => {
       logger.info("📞 Recebido SIGTERM");
       await this.gracefulShutdown();
-    });
-
-    // Error handlers
-    process.on("uncaughtException", (error) => {
-      logger.error("💥 Erro não capturado:", error);
-      process.exit(1);
-    });
-
-    process.on("unhandledRejection", (reason, promise) => {
-      logger.error("💥 Promise rejeitada não tratada:", reason);
-      process.exit(1);
     });
   }
 
