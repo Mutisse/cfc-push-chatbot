@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import chatRoutes from "./routes/chatRoutes";
 import { logger, morganStream } from "./config/logger";
-import { dashboardRoutes } from './routes/dashboardRoutes'; // Adicione esta linha
 
 
 // Carregar variáveis de ambiente

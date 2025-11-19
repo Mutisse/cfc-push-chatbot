@@ -2,7 +2,7 @@
   "name": "cfc-push-chatbot",
   "version": "1.0.0",
   "description": "Chatbot WhatsApp para Igreja CFC PUSH",
-  "main": "dist/app.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "start": "node dist/server.js",
@@ -10,7 +10,7 @@
     "start:prod": "NODE_ENV=production node dist/server.js",
     "clean": "rm -rf dist",
     "dev:debug": "ts-node-dev --respawn --transpile-only --inspect src/server.ts",
-    "build": "npm install && tsc",
+    "build": "tsc",
     "render-build": "npm install && npm run build"
   },
   "dependencies": {
