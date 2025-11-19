@@ -22,37 +22,15 @@ const UserSchema = new Schema<IUser>({
     unique: true,
     index: true
   },
-  name: { 
-    type: String 
-  },
-  dateOfBirth: { 
-    type: Date 
-  },
-  maritalStatus: { 
-    type: String 
-  },
-  address: { 
-    type: String 
-  },
-  profession: { 
-    type: String 
-  },
-  howFoundChurch: { 
-    type: String 
-  },
-  registrationDate: { 
-    type: Date, 
-    default: Date.now 
-  },
-  isMember: { 
-    type: Boolean, 
-    default: false 
-  },
-  lastInteraction: { 
-    type: Date, 
-    default: Date.now,
-    index: true
-  }
+  name: { type: String },
+  dateOfBirth: { type: Date },
+  maritalStatus: { type: String },
+  address: { type: String },
+  profession: { type: String },
+  howFoundChurch: { type: String },
+  registrationDate: { type: Date, default: Date.now },
+  isMember: { type: Boolean, default: false },
+  lastInteraction: { type: Date, default: Date.now, index: true }
 }, {
   timestamps: true
 });

@@ -12,24 +12,14 @@ export interface IAssistanceRequest extends Document {
 }
 
 const AssistanceRequestSchema = new Schema<IAssistanceRequest>({
-  userPhone: { 
-    type: String, 
-    required: true,
-    index: true
-  },
-  userName: { 
-    type: String, 
-    required: true 
-  },
+  userPhone: { type: String, required: true, index: true },
+  userName: { type: String, required: true },
   type: { 
     type: String, 
     enum: ['assistencia_alimentar', 'assistencia_medica', 'assistencia_juridica', 'assistencia_outra'],
     required: true 
   },
-  description: { 
-    type: String, 
-    required: true 
-  },
+  description: { type: String, required: true },
   status: { 
     type: String, 
     enum: ['pendente', 'em_analise', 'atendido', 'rejeitado'],

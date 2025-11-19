@@ -6,6 +6,7 @@ import express from 'express';
 import cors from 'cors';
 import { database } from './config/database';
 import { logger } from './config/logger';
+import { webhookRouter } from './routes/webhookRoutes';
 
 class Server {
   private app: express.Application;
@@ -35,7 +36,7 @@ class Server {
       allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
     }));
 
-    // Body parsing
+    // Body parsing - IMPORTANTE para Twilio (form-urlencoded)
     this.app.use(express.json({ limit: '10mb' }));
     this.app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
@@ -47,7 +48,7 @@ class Server {
   }
 
   private initializeRoutes(): void {
-    // Health check route SIMPLIFICADA
+    // Health check
     this.app.get('/health', async (req, res) => {
       try {
         const dbStatus = database.getConnectionStatus();
@@ -57,9 +58,7 @@ class Server {
           timestamp: new Date().toISOString(),
           service: 'CFC Push Chatbot',
           environment: process.env.NODE_ENV || 'development',
-          database: {
-            connected: dbStatus
-          },
+          database: { connected: dbStatus },
           uptime: process.uptime()
         };
 
@@ -84,11 +83,8 @@ class Server {
       });
     });
 
-    // Webhook route
-    this.app.post('/api/chatbot/webhook', (req, res) => {
-      logger.info('Webhook do chatbot chamado:', req.body);
-      res.status(200).json({ status: 'received', message: 'Webhook processado com sucesso' });
-    });
+    // Webhook routes (MODULARIZADO)
+    this.app.use('/api/chatbot', webhookRouter);
   }
 
   private initializeErrorHandling(): void {
@@ -113,7 +109,6 @@ class Server {
   }
 
   private setupProcessHandlers(): void {
-    // Graceful shutdown handlers
     process.on("SIGINT", async () => {
       logger.info("📞 Recebido SIGINT (Ctrl+C)");
       await this.gracefulShutdown();
@@ -159,6 +154,7 @@ class Server {
         logger.info(`📊 Ambiente: ${process.env.NODE_ENV || 'development'}`);
         logger.info(`🌐 URL: http://localhost:${this.port}`);
         logger.info(`❤️  Health check: http://localhost:${this.port}/health`);
+        logger.info(`🤖 Webhook: http://localhost:${this.port}/api/chatbot/webhook`);
       });
 
     } catch (error: any) {

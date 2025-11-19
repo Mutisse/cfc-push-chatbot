@@ -14,41 +14,23 @@ export interface IPrayerRequest extends Document {
 }
 
 const PrayerRequestSchema = new Schema<IPrayerRequest>({
-  userPhone: { 
-    type: String, 
-    required: true,
-    index: true
-  },
-  userName: { 
-    type: String, 
-    required: true 
-  },
-  description: { 
-    type: String, 
-    required: true 
-  },
+  userPhone: { type: String, required: true, index: true },
+  userName: { type: String, required: true },
+  description: { type: String, required: true },
   type: { 
     type: String, 
     enum: ['saude', 'familia', 'financas', 'outros'],
     required: true 
   },
-  familyMemberName: { 
-    type: String 
-  },
+  familyMemberName: { type: String },
   status: { 
     type: String, 
     enum: ['pendente', 'em_oracao', 'atendido'],
     default: 'pendente',
     index: true
   },
-  isAnonymous: { 
-    type: Boolean, 
-    default: false 
-  },
-  prayerCount: { 
-    type: Number, 
-    default: 0 
-  }
+  isAnonymous: { type: Boolean, default: false },
+  prayerCount: { type: Number, default: 0 }
 }, {
   timestamps: true
 });

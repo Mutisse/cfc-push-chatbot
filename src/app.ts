@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import chatRoutes from "./routes/chatRoutes";
+import chatRoutes from "./routes/webhookRoutes";
 import { logger, morganStream } from "./config/logger";
 
 

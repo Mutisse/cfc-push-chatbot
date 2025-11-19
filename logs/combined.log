@@ -630,3 +630,33 @@ MongoServerError: bad auth : authentication failed
 2025-11-19 15:33:52 [INFO]: GET /health - IP: ::1
 2025-11-19 15:33:52 [INFO]: GET /favicon.ico - IP: ::1
 2025-11-19 15:34:05 [INFO]: 📞 Recebido SIGINT (Ctrl+C)
+2025-11-19 16:48:51 [INFO]: 🔌 Conectando ao MongoDB: mongodb+srv://***:***@cluster0.4ja3eae.mongodb.net/cfc-push-chatbot?retryWrites=true&w=majority&appName=Cluster0
+2025-11-19 16:48:54 [INFO]: ✅ MongoDB conectado com sucesso!
+2025-11-19 16:48:54 [INFO]: 🚀 Servidor CFC PUSH Chatbot iniciado na porta 10000
+2025-11-19 16:48:54 [INFO]: 📊 Ambiente: development
+2025-11-19 16:48:54 [INFO]: 🌐 URL: http://localhost:10000
+2025-11-19 16:48:54 [INFO]: ❤️  Health check: http://localhost:10000/health
+2025-11-19 16:48:54 [INFO]: 🤖 Webhook: http://localhost:10000/api/chatbot/webhook
+2025-11-19 16:49:36 [INFO]: 🔌 Conectando ao MongoDB: mongodb+srv://***:***@cluster0.4ja3eae.mongodb.net/cfc-push-chatbot?retryWrites=true&w=majority&appName=Cluster0
+2025-11-19 16:49:39 [INFO]: 🔌 Conectando ao MongoDB: mongodb+srv://***:***@cluster0.4ja3eae.mongodb.net/cfc-push-chatbot?retryWrites=true&w=majority&appName=Cluster0
+2025-11-19 16:49:41 [INFO]: ✅ MongoDB conectado com sucesso!
+2025-11-19 16:49:41 [INFO]: 🚀 Servidor CFC PUSH Chatbot iniciado na porta 10000
+2025-11-19 16:49:41 [INFO]: 📊 Ambiente: development
+2025-11-19 16:49:41 [INFO]: 🌐 URL: http://localhost:10000
+2025-11-19 16:49:41 [INFO]: ❤️  Health check: http://localhost:10000/health
+2025-11-19 16:49:41 [INFO]: 🤖 Webhook: http://localhost:10000/api/chatbot/webhook
+2025-11-19 16:53:01 [INFO]: 🔌 Conectando ao MongoDB: mongodb+srv://***:***@cluster0.4ja3eae.mongodb.net/cfc-push-chatbot?retryWrites=true&w=majority&appName=Cluster0
+2025-11-19 16:53:03 [INFO]: ✅ MongoDB conectado com sucesso!
+2025-11-19 16:53:03 [INFO]: 🚀 Servidor CFC PUSH Chatbot iniciado na porta 10000
+2025-11-19 16:53:03 [INFO]: 📊 Ambiente: development
+2025-11-19 16:53:03 [INFO]: 🌐 URL: http://localhost:10000
+2025-11-19 16:53:03 [INFO]: ❤️  Health check: http://localhost:10000/health
+2025-11-19 16:53:03 [INFO]: 🤖 Webhook: http://localhost:10000/api/chatbot/webhook
+2025-11-19 16:55:46 [INFO]: 🔌 Conectando ao MongoDB: mongodb+srv://***:***@cluster0.4ja3eae.mongodb.net/cfc-push-chatbot?retryWrites=true&w=majority&appName=Cluster0
+2025-11-19 16:55:52 [INFO]: ✅ MongoDB conectado com sucesso!
+2025-11-19 16:55:52 [INFO]: 🚀 Servidor CFC PUSH Chatbot iniciado na porta 10000
+2025-11-19 16:55:52 [INFO]: 📊 Ambiente: development
+2025-11-19 16:55:52 [INFO]: 🌐 URL: http://localhost:10000
+2025-11-19 16:55:52 [INFO]: ❤️  Health check: http://localhost:10000/health
+2025-11-19 16:55:52 [INFO]: 🤖 Webhook: http://localhost:10000/api/chatbot/webhook
+2025-11-19 16:56:35 [INFO]: 📞 Recebido SIGINT (Ctrl+C)
